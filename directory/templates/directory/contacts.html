@@ -9,7 +9,7 @@
     {% for contact in contacts %}
       <li class="row mb-3 justify-content-center ">
         <a class="col-sm-8 border border-dark rounded-3 p-3 contact-item" href="{{ contact.get_absolute_url }}">
-          <div class="row ">
+          <div class="row">
             <span class="col-7">{{contact.name}} {{contact.last_name}}</span>
             <span class="col-5">{{ contact.company }}</span>
           </div>
@@ -43,6 +43,7 @@
       </ul>
 
     </nav>
+
   {% endif %}
 
 {% endblock content %}
