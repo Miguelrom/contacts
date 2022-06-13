@@ -1,10 +1,70 @@
-<h2>Name(s): {{ contact.name }}</h2>
+{% extends 'directory/base.html' %}
 
-<h2>Last name: {{ contact.last_name }}</h2>
+{% block title %}Contact detail{% endblock title %}
 
-<p><strong>Email:</strong> {{contact.email}}</p>
+{% block content %}
 
-<p><strong>Phone number:</strong> {{contact.phone_number}}</p>
+  <div class="container pt-5 ">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-7 border border-3 rounded-3 p-3 shadow">
+        <div class="row p-2">
+          <div class="col-4 "><strong>Name(s):</strong></div>
+          <div class="col">{{ contact.name }}</div>
+        </div>
+        <div class="row p-2">
+          <div class="col-4"><strong>Last name(s):</strong></div>
+          <div class="col">{{ contact.last_name }}</div>
+        </div>
+        <div class="row p-2">
+          <div class="col-4"><strong>Email:</strong></div>
+          <div class="col">{{contact.email}}</div>
+        </div>
+        <div class="row p-2">
+          <div class="col-4"><strong>Phone number:</strong></div>
+          <div class="col">{{contact.phone_number}}</div>
+        </div>
+        <div class="row p-2">
+          <div class="col-4"><strong>Company:</strong></div>
+          <div class="col">{{contact.company}}</div>
+        </div>
+        <div class="row justify-content-between p-2 mt-5">
+          <div class="col-auto">
+            <button class="btn btn-warning">Edit &nbsp;<i class="bi bi-pencil"></i></button>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete">Delete &nbsp;<i class="bi bi-trash3"></i></button>
+          </div>
+          <div class="col-auto">
+            <a class="btn btn-info" href="{% url 'contacts' %}">Home &nbsp;<i class="bi bi-arrow-up-left-square"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p><strong>Company:</strong> {{contact.company}}</p>
+  <div class="modal fade" tabindex="-1" id="confirmDelete">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete contact</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <form action="{% url 'contact-delete' contact.id %}" method="POST">
+            {% csrf_token %}
+            <div class="modal-body">
+              <p>Are you sure you want to delete <strong>{{ contact.name }} {{ contact.last_name }}</strong>?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button class="btn btn-success" type="submit">Yes, Delete</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+
+
 
