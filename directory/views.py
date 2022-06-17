@@ -4,6 +4,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from .models import Contact
+from .forms import ContactForm
 
 
 def index(request):
@@ -27,5 +28,11 @@ class ContactDeleteView(generic.DeleteView):
     model = Contact
     template_name = "directory/contact_confirm_delete.html"
     success_url = reverse_lazy('contacts')
+
+
+class ContactUpdateView(generic.UpdateView):
+    model = Contact
+    form_class = ContactForm
+    template_name = "directory/contact_update_form.html"
 
 
