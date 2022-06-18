@@ -3,47 +3,9 @@
 {% block title %}Update contact{% endblock title %}
 
 {% block content %}
-  <div class="container pt-5">
-    <div class="row justify-content-center">
-      <form action="" method="POST" class="col-12 col-md-10 col-lg-8 border border-3 rounded-3 shadow p-3">
-        {% csrf_token %}
-        <div class="row p-2">
-          <label for="{{ form.name.id_for_label }}" class="col-12 col-sm-3 col-form-label fw-bold">{{ form.name.label_tag }}</label>
-          <div class="col-12 col-sm-9">
-            {{ form.name }}
-          </div>
-        </div>
-        <div class="row p-2">
-          <label for="{{ form.last_name.id_for_label }}" class="col-12 col-sm-3 col-form-label fw-bold">{{ form.last_name.label_tag }}</label>
-          <div class="col-12 col-sm-9">
-            {{ form.last_name }}
-          </div>
-        </div>
-        <div class="row p-2">
-          <label for="{{ form.email.id_for_label }}" class="col-12 col-sm-3 col-form-label fw-bold">{{ form.email.label_tag }}</label>
-          <div class="col-12 col-sm-9">
-            {{ form.email }}
-          </div>
-        </div>
-        <div class="row p-2">
-          <label for="{{ form.phone_number.id_for_label }}" class="col-12 col-sm-3 col-form-label fw-bold">{{ form.phone_number.label_tag }}</label>
-          <div class="col-12 col-sm-9">
-            {{ form.phone_number }}
-          </div>
-        </div>
-        <div class="row p-2">
-          <label for="{{ form.company.id_for_label }}" class="col-12 col-sm-3 col-form-label fw-bold">{{ form.company.label_tag }}</label>
-          <div class="col-12 col-sm-9">
-            {{ form.company }}
-          </div>
-        </div>
-        <div class="row p-2 justify-content-end">
-          <div class="col-auto">
-            <button class="btn btn-success btn-lg" type="submit">Save</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+
+  <h2 class="text-center pt-4">Contact update</h2>
+
+  {% include 'directory/contact_form_snippet.html' %}
 
 {% endblock content %}
