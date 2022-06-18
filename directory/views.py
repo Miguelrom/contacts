@@ -36,3 +36,7 @@ class ContactUpdateView(generic.UpdateView):
     template_name = "directory/contact_update_form.html"
 
 
+class ContactCreateView(generic.CreateView):
+    model = Contact
+    form_class = ContactForm
+    template_name = "directory/contact_create_form.html"
