@@ -4,27 +4,29 @@
 
 {% block content %}
 
-  <div class="container pt-5 ">
+  <h2 class="text-center pt-4">Contact detail</h2>
+
+  <div class="container pt-3 ">
     <div class="row justify-content-center">
       <div class="col-12 col-md-10 col-lg-8 col-xl-7 border border-3 rounded-3 p-3 shadow">
         <div class="row p-2">
-          <div class="col-12 col-sm-4"><strong>Name(s):</strong></div>
+          <div class="col-12 col-sm-4 fw-bold">Name(s):</div>
           <div class="col-12 col-sm-8">{{ contact.name }}</div>
         </div>
         <div class="row p-2">
-          <div class="col-12 col-sm-4"><strong>Last name(s):</strong></div>
+          <div class="col-12 col-sm-4 fw-bold">Last name(s):</div>
           <div class="col-12 col-sm-8">{{ contact.last_name }}</div>
         </div>
         <div class="row p-2">
-          <div class="col-12 col-sm-4"><strong>Email:</strong></div>
+          <div class="col-12 col-sm-4 fw-bold">Email:</div>
           <div class="col col-sm-8">{{contact.email}}</div>
         </div>
         <div class="row p-2">
-          <div class="col-12 col-sm-4"><strong>Phone number:</strong></div>
+          <div class="col-12 col-sm-4 fw-bold">Phone number:</div>
           <div class="col-12 col-sm-8">{{contact.phone_number}}</div>
         </div>
         <div class="row p-2">
-          <div class="col-12 col-sm-4"><strong>Company:</strong></div>
+          <div class="col-12 col-sm-4 fw-bold">Company:</div>
           <div class="col-12 col-sm-8">{{contact.company}}</div>
         </div>
         <div class="row justify-content-start justify-content-sm-between p-2 mt-5">
