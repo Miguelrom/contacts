@@ -6,9 +6,6 @@
   <h2 class="text-center mb-5 pt-5">My Contacts</h2>
 
   <ul class="list-unstyled container-fluid mb-4">
-    <li class="row mb-3 justify-content-center">
-      <a class="btn btn-lg btn-success d-block border col-sm-8" href="{% url 'contact-create' %}">New Contact &nbsp;<i class="bi bi-person-plus"></i></a>
-    </li>
     {% for contact in contacts %}
       <li class="row mb-3 justify-content-center ">
         <a class="col-sm-8 border border-dark rounded-3 p-3 contact-item" href="{{ contact.get_absolute_url }}">
@@ -19,7 +16,7 @@
         </a>
       </li>
       {% empty %}
-        <li>No contacts yet.</li>
+        <li class="row mb-3 justify-content-center">No contacts yet.</li>
     {% endfor %}
   </ul>
 
