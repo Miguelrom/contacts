@@ -13,6 +13,8 @@
   {% load static %}
   <!-- Additional CSS -->
   <link rel="stylesheet" href="{% static 'directory/css/styles.css' %}">
+  <!-- Additional JS -->
+  <script defer src="{% static 'directory/js/dynamics.js' %}"></script>
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'directory/img/apple-touch-icon.png' %}">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'directory/img/favicon-16x16.png' %}">
@@ -20,6 +22,27 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-md navbar-light fixed-top border-bottom border-3 shadow-sm bg-white">
+    <div class="container-fluid container-lg">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul id="navigation" class="navbar-nav me-auto mb-2 mb-md-0 pt-1">
+          <li class="nav-item"><a id="contacts" href="{% url 'contacts' %}" class="nav-link text-black fs-5">All Contacts</a></li>
+          <li class="nav-item"><a id="contact-create" href="{% url 'contact-create' %}" class="nav-link text-black fs-5 ">New Contact</a></li>
+          <li class="nav-item"><a id="about" href="#" class="nav-link text-black fs-5">About</a></li>
+        </ul>
+        <form action="{% url 'contact-search' %}" method="get">
+          <div class="input-group input-group-lg">
+            <input class="form-control border-secondary" type="text" placeholder="Search contact" name="search_query">
+            <button class="btn btn-outline-dark " type="submit"><i class="bi bi-search"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
   {% block content %}{% endblock content %}
 </body>
 </html>

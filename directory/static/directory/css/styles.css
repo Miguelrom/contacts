@@ -1,9 +1,29 @@
 body {
   font-size: 18px;
+  padding-top: 4rem;
+  min-height: 75rem;
 }
 
 .debug-border {
   border: 1px solid black;
+}
+
+
+@media (min-width: 768px) {
+
+  .active-tab {
+    border-bottom: 5px solid blue;
+    color: darkblue !important;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .active-tab {
+    background-color: lightblue;
+  }
+
 }
 
 .contact-item {
@@ -21,3 +41,5 @@ body {
 .contact-item:active {
   transform: translateY(2px);
 }
+
+
