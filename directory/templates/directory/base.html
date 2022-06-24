@@ -32,18 +32,23 @@
         <ul id="navigation" class="navbar-nav me-auto mb-2 mb-md-0 pt-1">
           <li class="nav-item"><a id="contacts" href="{% url 'contacts' %}" class="nav-link text-black fs-5">All Contacts</a></li>
           <li class="nav-item"><a id="contact-create" href="{% url 'contact-create' %}" class="nav-link text-black fs-5 ">New Contact</a></li>
-          <li class="nav-item"><a id="about" href="#" class="nav-link text-black fs-5">About</a></li>
+          <li class="nav-item"><a id="about" href="{% url 'about' %}" class="nav-link text-black fs-5">About</a></li>
         </ul>
         <form action="{% url 'contact-search' %}" method="get">
           <div class="input-group input-group-lg">
-            <input class="form-control border-secondary" type="text" placeholder="Search contact" name="search_query">
+            <input class="form-control border-secondary" type="text" placeholder="Search contact" name="search_query" value="{{ search_query }}">
             <button class="btn btn-outline-dark " type="submit"><i class="bi bi-search"></i></button>
           </div>
         </form>
       </div>
     </div>
   </nav>
-  {% block content %}{% endblock content %}
+
+  <h2 class="text-center mb-4 pt-5">{% block page-header %}{% endblock %}</h2>
+
+  {% block content %}
+
+  {% endblock content %}
 </body>
 </html>
 
