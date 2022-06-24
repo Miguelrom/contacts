@@ -1,0 +1,11 @@
+{% extends 'directory/base.html' %}
+
+{% block title %}Contact search{% endblock %}
+
+{% block page-header %}Contact Search Results{% endblock %}
+
+{% block content %}
+
+  {% include 'directory/partials/contact_list_snippet.html' with empty_list_message='No results found.' %}
+
+{% endblock %}
