@@ -14,6 +14,10 @@ urlpatterns = [
     name='contact-update'),
     path('contacts/create/',views.ContactCreateView.as_view(),
     name='contact-create'),
+    path('contacts/search/',views.ContactSearchView.as_view(),
+    name='contact-search'),
+    path('contacts/about/',views.AboutTemplateView.as_view(),
+    name='about'),
 
 ]
 
