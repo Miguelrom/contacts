@@ -1,0 +1,41 @@
+
+  <ul class="list-unstyled container-fluid mb-4">
+    {% for contact in contacts %}
+      <li class="row mb-3 justify-content-center ">
+        <a class="col-sm-8 border border-dark rounded-3 p-3 contact-item" href="{{ contact.get_absolute_url }}">
+          <div class="row">
+            <span class="col-7">{{contact.name}} {{contact.last_name}}</span>
+            <span class="col-5">{{ contact.company }}</span>
+          </div>
+        </a>
+      </li>
+      {% empty %}
+        <li class="row mb-3 justify-content-center">{{ empty_list_message|default:"No elements." }}</li>
+    {% endfor %}
+  </ul>
+
+  {% if is_paginated %}
+
+    <nav class="mb-5" aria-label="page navigation">
+
+      <ul class="pagination pagination-lg justify-content-center align-items-center">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link border-dark rounded-3" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        {% endif %}
+
+        <li class="page-item px-3"><strong>{{ page_obj.number }}</strong> of {{ paginator.num_pages }}</li>
+
+        {% if page_obj.has_next %}
+          <li class="page-item"><a class="page-link border-dark rounded-3" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a></li>
+        {% else %}
+          <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+        {% endif %}
+      </ul>
+
+    </nav>
+
+  {% endif %}
