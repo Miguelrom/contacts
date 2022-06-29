@@ -1,0 +1,45 @@
+body {
+  font-size: 18px;
+  padding-top: 3.5rem;
+  min-height: 70rem;
+}
+
+.debug-border {
+  border: 2px solid darkorange;
+}
+
+
+@media (min-width: 768px) {
+
+  .active-tab {
+    border-bottom: 5px solid blue;
+    color: darkblue !important;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .active-tab {
+    background-color: lightblue;
+  }
+
+}
+
+.contact-item {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.contact-item:hover {
+  color: black;
+  background-color: rgb(243, 241, 241);
+  box-shadow: 4px 4px 2px gray;
+}
+
+.contact-item:active {
+  transform: translateY(2px);
+}
+
+

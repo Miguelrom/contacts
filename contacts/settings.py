@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r718v1+-*-xfi(jx0-%@qcxipcz=rr%qsh$3!+l!1!1zuk814('
+SECRET_KEY = environ.get('SECRET_KEY', 'django-insecure-r718v1+-*-xfi(jx0-%@qcxipcz=rr%qsh$3!+l!1!1zuk814(')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': config('DB_ENGINE', default='django.db.backends.sqlite3'),
         'NAME': config('DB_NAME', default=BASE_DIR / 'db.sqlite3'),
         'USER': config('DB_USER', default=''),
-        'PASSWORD': environ['DB_PWD'],
+        'PASSWORD': environ.get('DB_PWD', ''),
         'HOST': config('HOST', default='localhost'),
         'PORT': config('DB_PORT', default='')
     }
@@ -123,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
