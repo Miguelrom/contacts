@@ -27,7 +27,7 @@ SECRET_KEY = environ.get('SECRET_KEY', 'django-insecure-r718v1+-*-xfi(jx0-%@qcxi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["mike-contacts.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
